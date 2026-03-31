@@ -258,9 +258,12 @@ const handleWeekStart = (date: string) => {
                             {/* Delete */}
                             {selected.status === 'Draft' && (
                               <button onClick={() => deleteShift(shift._id)} style={{
-                                position:'absolute',top:3,right:3,background:'none',border:'none',
-                                color:'var(--danger)',cursor:'pointer',fontSize:11,lineHeight:1,padding:'1px 3px',
-                              }}>×</button>
+                                position:'absolute',top:3,right:3,
+background:'var(--danger)',border:'none',
+color:'#fff',cursor:'pointer',fontSize:10,
+lineHeight:1,padding:'3px 6px',borderRadius:4,
+fontWeight:700,
+}}>✕</button>
                             )}
                           </div>
                         );
