@@ -41,8 +41,8 @@ Open **http://localhost:5173** in your browser.
 Copy `.env.example` to `.env` and fill in:
 
 ```env
-MONGODB_URI=mongodb+srv://mantonmanorathan:ShiftSwap123@clustershiftswap.bhd1xn7.mongodb.net/shiftswap?retryWrites=true&w=majority&appName=ClusterShiftSwap
-JWT_SECRET=shiftswap_super_secret_2026_xyz
+MONGODB_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRES_IN=7d
 PORT=5000
 NODE_ENV=development
@@ -209,4 +209,4 @@ NODE_ENV     = production
 
 ---
 
-*ShiftSwap v1.0 · Built with React + Node.js + MongoDB Atlas*
+*ShiftSwap Developers: Manoj Anton Manorathan & Varsha Maria Alex · Built with React + Node.js + MongoDB Atlas*
