@@ -115,13 +115,13 @@ export function Modal({ open, onClose, title, children, width=520 }: {
       <div onClick={e=>e.stopPropagation()} className="fade-in" style={{
         background:'var(--bg-card)', border:'1px solid var(--border-light)',
         borderRadius:'var(--radius-lg)', width:'100%', maxWidth:width,
-        maxHeight:'90vh', overflowY:'auto', boxShadow:'var(--shadow-lg)',
+        maxHeight:'88vh', overflowY:'auto', boxShadow:'var(--shadow-lg)', display:'flex', flexDirection:'column',
       }}>
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 24px',borderBottom:'1px solid var(--border)'}}>
           <h3 style={{fontSize:16,fontWeight:700}}>{title}</h3>
           <button onClick={onClose} style={{background:'none',border:'none',color:'var(--text-secondary)',fontSize:22,cursor:'pointer',lineHeight:1,padding:'0 4px'}}>×</button>
         </div>
-        <div style={{padding:24}}>{children}</div>
+        <div style={{padding:24, overflowY:'auto', flex:1}}>{children}</div>
       </div>
     </div>
   );

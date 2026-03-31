@@ -111,7 +111,7 @@ const handleWeekStart = (date: string) => {
           <p style={{fontSize:12,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:4}}>Manager → Schedule</p>
           <h1 style={{fontSize:24,fontWeight:800}}>Weekly Schedules</h1>
         </div>
-        <Btn onClick={() => setShowCreate(true)} icon="+" size="md">New Schedule</Btn>
+        <Btn onClick={() => setShowCreate(true)} icon="+" size="md" style={{background:'var(--accent)',color:'#fff'}}>New Schedule</Btn>
       </div>
 
       <div style={{display:'grid',gridTemplateColumns:'260px 1fr',gap:20}}>
