@@ -96,9 +96,27 @@ const handleWeekStart = (date: string) => {
       toast('Shift removed');
     } catch (e: any) { toast(e.message, 'error'); }
   };
+  const deleteSchedule = async (schedId: string) => {
+    if (!window.confirm('Delete this entire schedule and all its shifts?')) return;
+    try {
+      await api.delete(`/schedules/${schedId}`);
+      setSchedules(prev => prev.filter(s => s._id !== schedId));
+      setSelected(null);
+      setShifts([]);
+      toast('Schedule deleted');
+    } catch (e: any) { toast(e.message, 'error'); }
+  };
 
-  const shiftsByDay = DAYS.reduce((acc, day) => {
-    acc[day] = shifts.filter(s => getDayOfWeek(s.shiftDate) === day);
+  const shiftsByDay = DAYS.reduce((acc, day) => {const deleteSchedule = async (schedId: string) => {
+    if (!window.confirm('Delete this entire schedule and all its shifts?')) return;
+    try {
+      await api.delete(`/schedules/${schedId}`);
+      setSchedules(prev => prev.filter(s => s._id !== schedId));
+      setSelected(null);
+      setShifts([]);
+      toast('Schedule deleted');
+    } catch (e: any) { toast(e.message, 'error'); }
+  };    acc[day] = shifts.filter(s => getDayOfWeek(s.shiftDate) === day);
     return acc;
   }, {} as Record<string, Shift[]>);
 
@@ -152,10 +170,16 @@ const handleWeekStart = (date: string) => {
                   <Badge label={selected.status} variant={selected.status === 'Published' ? 'success' : 'warning'}/>
                   <Btn onClick={() => setShowAddShift(true)} variant="secondary" size="sm" icon="+">Add Shift</Btn>
                   {selected.status === 'Draft' && (
-                    <Btn onClick={publishSchedule} loading={publishing} size="sm" variant="success">
-                      ✓ Publish
-                    </Btn>
-                  )}
+    <>
+      <Btn onClick={publishSchedule} loading={publishing} size="sm" variant="success">
+        ✓ Publish
+      </Btn>
+      <Btn onClick={() => deleteSchedule(selected._id)} size="sm" variant="danger">
+        🗑 Delete
+      </Btn>
+    </>
+  )}
+                  
                 </div>
               </div>
             </Card>
