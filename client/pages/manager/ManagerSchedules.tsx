@@ -43,10 +43,11 @@ export default function ManagerSchedulesPage() {
       .catch(() => setShifts([]));
   }, [selected]);
 
-  const handleWeekStart = (date: string) => {
-    const d = new Date(date);
+const handleWeekStart = (date: string) => {
+    const parts = date.split('-');
+    const d = new Date(Date.UTC(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2])));
     const end = new Date(d);
-    end.setDate(d.getDate() + 6);
+    end.setUTCDate(d.getUTCDate() + 6);
     setNewSched({ weekStartDate: date, weekEndDate: toInputDate(end) });
   };
 
