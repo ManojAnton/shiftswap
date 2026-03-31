@@ -109,20 +109,21 @@ export function Modal({ open, onClose, title, children, width=520 }: {
   if (!open) return null;
   return (
     <div onClick={onClose} style={{
-  position:'fixed', inset:0, background:'rgba(0,0,0,0.75)', backdropFilter:'blur(4px)',
-  display:'flex', alignItems:'flex-start', justifyContent:'center',
-  zIndex:9999, padding:'40px 16px', overflowY:'auto',
+  position:'fixed', inset:0, background:'rgba(0,0,0,0.75)',
+  backdropFilter:'blur(4px)', display:'flex', alignItems:'flex-start',
+  justifyContent:'center', zIndex:9999, padding:'30px 16px',
+  overflowY:'auto',
 }}>
   <div onClick={e=>e.stopPropagation()} className="fade-in" style={{
     background:'var(--bg-card)', border:'1px solid var(--border-light)',
     borderRadius:'var(--radius-lg)', width:'100%', maxWidth:width,
-    boxShadow:'var(--shadow-lg)', marginBottom:40,
+    boxShadow:'var(--shadow-lg)', marginBottom:30, flexShrink:0,
   }}>
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 24px',borderBottom:'1px solid var(--border)'}}>
           <h3 style={{fontSize:16,fontWeight:700}}>{title}</h3>
           <button onClick={onClose} style={{background:'none',border:'none',color:'var(--text-secondary)',fontSize:22,cursor:'pointer',lineHeight:1,padding:'0 4px'}}>×</button>
         </div>
-        <div style={{padding:24, overflowY:'auto', flex:1}}>{children}</div>
+        <div style={{padding:24, overflowY:'visible'}}>{children}</div>
       </div>
     </div>
   );
