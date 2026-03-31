@@ -6,7 +6,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node --watch src/server.js",
     "client": "vite",
-    "build": "npx vite build",
+    "build": "npm install --save-dev vite @vitejs/plugin-react typescript @types/react @types/react-dom @tailwindcss/vite tailwindcss && ./node_modules/.bin/vite build",
     "start": "node src/server.js",
     "seed": "node src/utils/seed.js"
   },
